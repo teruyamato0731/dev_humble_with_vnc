@@ -7,18 +7,25 @@
 	"workspaceFolder": "/workspaces/${localEnv:COMPOSE_PROJECT_NAME}",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": "false",
-			"installOhMyZsh": "false",
 			"username": "vscode",
 			"userUid": "1000",
 			"userGid": "1000"
+		},
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+			"noVncVersion": "1.2.0",
+			"password": "vscode",
+			"vncPort": "5901",
+			"webPort": "6080"
 		}
 	},
 	// "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [
+		5901,
+		6080
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
 	"postCreateCommand": "echo \"source /opt/ros/humble/setup.bash\" >> ~/.bashrc",
